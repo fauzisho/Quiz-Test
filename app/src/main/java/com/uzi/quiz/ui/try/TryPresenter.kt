@@ -23,4 +23,18 @@ class TryPresenter(
                 view.dismissLoading()
             })
     }
+
+    @SuppressLint("CheckResult")
+    fun putDataResult(user: String, data: MutableList<String>) {
+        view.showLoading()
+        quizrepository.putDataResult(user, data)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe({
+                view.dismissLoading()
+            }, {
+                view.showError(it)
+                view.dismissLoading()
+            })
+    }
 }

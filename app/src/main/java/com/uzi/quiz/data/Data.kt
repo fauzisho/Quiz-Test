@@ -9,5 +9,7 @@ data class Data(
     @SerializedName("questions")
     val questions: String,
     @SerializedName("type")
-    val type: String
+    val type: String,
+    @SerializedName("userAnswer")
+    var userAnswer: String? = ""
 )

@@ -2,8 +2,10 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/colorWhite"
     android:layout_height="match_parent"
     tools:context=".ui.try.TryFragment">
+
 
     <RelativeLayout
         android:id="@+id/rlBack"
@@ -143,4 +145,28 @@
             android:visibility="gone" />
 
     </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rlSucSubmit"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorWhite"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/ivDf"
+            android:layout_width="150dp"
+            android:layout_height="125dp"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/im_df" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ivDf"
+            android:gravity="center_horizontal"
+            android:text="Thank you for submitting \(^^)/"
+            android:textAlignment="center" />
+    </RelativeLayout>
+
 </RelativeLayout>

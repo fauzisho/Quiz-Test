@@ -70,7 +70,6 @@ class TryFragment : Fragment(), TryView {
                 answers.add(it)
             }
         }
-        answers.toString().toast(App.instance)
 
         dataQuestions[1].userAnswer?.let { presenter.putDataResult(it, answers) }
     }
@@ -117,6 +116,10 @@ class TryFragment : Fragment(), TryView {
         initTimer(data.time.type, data.time.value)
         dataQuestions = data.data
         initQuestions()
+    }
+
+    override fun successSubmit() {
+        rlSucSubmit.visibility = View.VISIBLE
     }
 
     private fun initQuestions() {
@@ -207,4 +210,5 @@ class TryFragment : Fragment(), TryView {
             minutes, seconds
         )
     }
+
 }

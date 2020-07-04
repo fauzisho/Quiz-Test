@@ -32,6 +32,7 @@ class TryPresenter(
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
                 view.dismissLoading()
+                view.successSubmit()
             }, {
                 view.showError(it)
                 view.dismissLoading()

@@ -7,4 +7,5 @@ interface TryView {
     fun dismissLoading()
     fun showError(throwable: Throwable)
     fun showData(data: QuizData)
+    fun successSubmit()
 }

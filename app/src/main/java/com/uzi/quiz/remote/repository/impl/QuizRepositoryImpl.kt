@@ -15,7 +15,10 @@ class QuizRepositoryImpl(
         return restApi.getDataQuiz()
     }
 
-    fun putDataResult(user: String, data: MutableList<String>): Single<MutableList<String>> {
+    override fun putDataResult(
+        user: String,
+        data: MutableList<String>
+    ): Single<MutableList<String>> {
         return restApi.putDataResult(user, data)
     }
 

@@ -16,8 +16,6 @@
 
 * **master** -> for release app
 
-After finish development feature, you have to make `merge request` into **develop** branch
-
 ### Build
 
 * Execute `./gradlew assemble`

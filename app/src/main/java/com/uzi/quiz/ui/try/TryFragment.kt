@@ -56,6 +56,7 @@ class TryFragment : Fragment(), TryView, Updateable {
             decrementQuestion()
         }
 
+        indexQuestion = 0
         presenter.getQuizData()
     }
 

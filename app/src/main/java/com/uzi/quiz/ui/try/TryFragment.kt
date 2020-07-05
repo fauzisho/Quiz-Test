@@ -10,14 +10,15 @@ import com.uzi.quiz.App
 import com.uzi.quiz.R
 import com.uzi.quiz.data.Data
 import com.uzi.quiz.data.QuizData
-import com.uzi.quiz.util.toast
+import com.uzi.quiz.ui.Updateable
 import kotlinx.android.synthetic.main.fragment_try.*
 import java.util.*
 import java.util.concurrent.TimeUnit
 import kotlin.collections.ArrayList
 
-class TryFragment : Fragment(), TryView {
+class TryFragment : Fragment(), TryView, Updateable {
 
+    private var timer: CountDownTimer? = null
     private lateinit var dataQuestions: List<Data>
     private lateinit var presenter: TryPresenter
     var indexQuestion = 0
@@ -34,7 +35,6 @@ class TryFragment : Fragment(), TryView {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         presenter = TryPresenter(this, App.instance.component.quizRepositoryImpl)
-        presenter.getQuizData()
 
         btnNext.setOnClickListener {
             addAnswer()
@@ -55,6 +55,8 @@ class TryFragment : Fragment(), TryView {
         rlBack.setOnClickListener {
             decrementQuestion()
         }
+
+        presenter.getQuizData()
     }
 
     private fun addNameFirst() {
@@ -70,7 +72,8 @@ class TryFragment : Fragment(), TryView {
                 answers.add(it)
             }
         }
-
+        timer?.cancel()
+        timer?.onFinish()
         dataQuestions[1].userAnswer?.let { presenter.putDataResult(it, answers) }
     }
 
@@ -179,7 +182,7 @@ class TryFragment : Fragment(), TryView {
             minute = (1000 * 60 * count).toLong()
         }
 
-        val timer = object : CountDownTimer(minute, 1000) {
+        timer = object : CountDownTimer(minute, 1000) {
             override fun onTick(millisUntilFinished: Long) {
                 if (tvTimer != null) {
                     tvTimer.text = timeString(millisUntilFinished)
@@ -192,7 +195,7 @@ class TryFragment : Fragment(), TryView {
                 }
             }
         }
-        timer.start()
+        (timer as CountDownTimer).start()
     }
 
     private fun timeString(millisUntilFinished: Long): String {
@@ -211,4 +214,12 @@ class TryFragment : Fragment(), TryView {
         )
     }
 
+    override fun onPause() {
+        super.onPause()
+        timer?.cancel()
+    }
+
+    override fun update() {
+
+    }
 }

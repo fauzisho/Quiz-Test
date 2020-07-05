@@ -6,8 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.uzi.quiz.R
+import com.uzi.quiz.ui.Updateable
 
-class ExitFragment : Fragment() {
+class ExitFragment : Fragment(), Updateable {
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -16,5 +17,9 @@ class ExitFragment : Fragment() {
     ): View? {
         val root = inflater.inflate(R.layout.fragment_exit, container, false)
         return root
+    }
+
+    override fun update() {
+
     }
 }

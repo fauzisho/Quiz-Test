@@ -5,6 +5,7 @@ import android.graphics.PorterDuff
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager.widget.ViewPager
+import androidx.viewpager.widget.ViewPager.SimpleOnPageChangeListener
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayout.OnTabSelectedListener
 import com.uzi.myapplication.ui.main.SectionsPagerAdapter
@@ -38,5 +39,14 @@ class MainActivity : AppCompatActivity() {
             override fun onTabReselected(tab: TabLayout.Tab) {}
         })
         tabs.getTabAt(1)?.select()
+
+        viewPager.addOnPageChangeListener(object : SimpleOnPageChangeListener() {
+            override fun onPageSelected(position: Int) {
+                if (sectionsPagerAdapter != null) {
+                    val fragment: Updateable = sectionsPagerAdapter.getItem(position) as Updateable
+                    fragment?.update()
+                }
+            }
+        })
     }
 }

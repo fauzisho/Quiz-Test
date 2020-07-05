@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "670131344297",
+    "firebase_url": "https://quiz-test-1-ec616.firebaseio.com",
+    "project_id": "quiz-test-1-ec616",
+    "storage_bucket": "quiz-test-1-ec616.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:670131344297:android:dfdfa54a1ad67f7f58eab8",
+        "android_client_info": {
+          "package_name": "com.uzi.quiz"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "670131344297-ednnvn8d6n5nd8ceut6ip59uptiega6f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDk8iEBwP5nj8Ix1xCzL897CtsKfb9OIq0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "670131344297-ednnvn8d6n5nd8ceut6ip59uptiega6f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
